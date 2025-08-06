@@ -103,11 +103,11 @@ function makeGif() {
   const numFrames = numFramesInput.value;
   const outputRect = imageDisplay.getBoundingClientRect();
   const finalRect = zoomOverlay.getBoundingClientRect();
-  const startWidth = image.naturalWidth;
-  const finalWidth = finalRect.width;
-  const startHeight = image.naturalHeight;
-  const finalHeight = finalRect.height;
   const scale = image.naturalWidth / outputRect.width;
+  const startWidth = image.naturalWidth;
+  const finalWidth = parseInt(scale * finalRect.width);
+  const startHeight = image.naturalHeight;
+  const finalHeight = parseInt(scale * finalRect.height);
   const finalX = parseInt(scale * (finalRect.x - outputRect.x));
   const finalY = parseInt(scale * (finalRect.y - outputRect.y));
   jQuery(framesArea).empty();
